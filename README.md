@@ -1,18 +1,80 @@
-# Vue 3 + TypeScript + Vite
+# RandomizeDinnerIdeas
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This is a single-page web application that allows users to browse meal recipes. The app uses the [themealdb.com](https://www.themealdb.com/api.php) API to fetch meal data and displays it in a responsive user interface.
 
-## Recommended IDE Setup
+## Getting Started
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+To start the application, first clone the repository to your local machine:
 
-## Type Support For `.vue` Imports in TS
+```console
+git clone https://github.com/your-username/meal-finder.git
+```
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+```console
+npm install
+```
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+```console
+npm run serve
+```
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+This will start a development server and open the application in your default browser.
+
+To run unit tests, use the following command:
+
+```console
+npm run test:unit
+```
+
+This will run all unit tests and display the results in the console.
+
+## Architecture
+
+### Folder Structure
+
+The application follows a modular architecture, with each feature or domain represented by a module. The modules are organized into a src/modules directory, and each module contains its own state, components, and other logic.
+
+The top-level directory structure looks like this:
+
+```css
+src/
+├── assets/
+│   ├── images/
+│   └── styles/
+├── common/
+│   ├── Content/
+│   ├── Title/
+│   ├── types/
+│   └── utils/
+├── modules/
+│   ├── meal/
+│   └── search/
+├── store/
+│   ├── modules/
+│   └── index.ts
+├── views/
+├── App.vue
+└── main.ts
+```
+
+### Libraries and Frameworks
+
+The application is built with Vue.js 3 and uses Tailwind CSS for styling. It also includes the following libraries:
+
+ - axios: for making HTTP requests to the API
+ - vue-router: for client-side routing
+ - pinia: for state management
+
+### State Management
+
+The application uses the pinia library for state management. The state is organized into modules, with each module representing a feature or domain of the application. The modules are defined in the src/store/modules directory and are imported into the src/store/index.ts file, which creates the root store instance.
+
+Each module contains its own state, actions, mutations, and getters, and can be accessed and modified using the useStore or useModule functions provided by pinia.
+
+### Testing
+
+The application includes unit tests for the MealDetails component, which can be found in the tests/unit/MealDetails.spec.ts file. The tests use the @vue/test-utils library and Jest as the test runner.
+
+## Conclusion
+
+This meal finder application was built by a React developer who had a lot of fun learning about Vue3 Composition and Pinia. The application demonstrates the use of Vue.js 3 and Tailwind CSS to build a responsive, modular, and testable web application. The use of libraries such as axios, vue-router, and pinia helps to simplify development and make the code more maintainable and scalable.

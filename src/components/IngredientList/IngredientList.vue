@@ -18,10 +18,13 @@ const ingredientsWithMeasure = computed(() => {
 <template>
   <p class="mt-4 text-gray-700 text-base">
     <table class="table-auto w-full">
-      <div v-for="item in ingredientsWithMeasure">
+      <div
+        v-for="item in ingredientsWithMeasure"
+        :key="item.measure"
+      >
         <tr>
-          <span class="font-medium">{{item.ingredient}}:</span>
-          <span class="text-gray-500 ml-2">{{item.measure}}</span>
+          <span class="font-medium">{{ item.ingredient }}:</span>
+          <span class="text-gray-500 ml-2">{{ item.measure }}</span>
         </tr>
       </div>
     </table>

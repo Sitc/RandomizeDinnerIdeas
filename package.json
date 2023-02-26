@@ -13,6 +13,11 @@
   "lint-staged": {
     "*.{vue,js,ts}": "eslint --fix"
   },
+  "jest": {
+    "moduleNameMapper": {
+      "axios": "axios/dist/node/axios.cjs"
+    }
+  },
   "dependencies": {
     "pinia": "^2.0.32",
     "vue": "^3.2.45"

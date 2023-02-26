@@ -2,25 +2,19 @@
 import { useMealStore } from "../stores/meal";
 import { storeToRefs } from "pinia";
 import TitleContent from "../common/Title/TitleContent.vue";
-import { onMounted, ref } from "vue";
+import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 import SearchInput from "@/components/Search/SearchInput.vue";
-import { getIngredientsWithMeasure } from "@/utils/getIngredientsWithMeasure";
 
 const router = useRouter();
 const mealStore = useMealStore();
 const { fetchRandomMeal } = mealStore;
 const { randomMeal, isLoading, error, searchResults } = storeToRefs(mealStore);
-const ingredientsWithMeasure = ref(null);
 
 onMounted(() => {
   if (!randomMeal.value) {
     fetchRandomMeal();
   }
-
-  ingredientsWithMeasure.value = randomMeal.value
-    ? getIngredientsWithMeasure(randomMeal.value)
-    : null;
 });
 
 const viewDetails = (id: string) => {
@@ -57,8 +51,12 @@ const viewDetails = (id: string) => {
               Surprise me &#127881;
             </button>
 
-            <p v-if="isLoading">Loading meal...</p>
-            <p v-if="error">Something went wrong</p>
+            <p v-if="isLoading">
+              Loading meal...
+            </p>
+            <p v-if="error">
+              Something went wrong
+            </p>
 
             <div class="p-4">
               <div
@@ -70,7 +68,7 @@ const viewDetails = (id: string) => {
                       class="w-full h-full object-cover md:rounded-l-xl"
                       :src="randomMeal?.strMealThumb"
                       alt="A beautiful landscape"
-                    />
+                    >
                   </div>
                   <div class="p-6 md:flex-grow">
                     <title-content
@@ -111,12 +109,17 @@ const viewDetails = (id: string) => {
                   class="w-full h-full object-cover"
                   :src="meal?.strMealThumb"
                   alt="meal"
-                />
+                >
               </div>
               <div class="px-6 py-2 flex flex-col justify-between">
                 <div>
-                  <title-content :title="meal?.strMeal" color="text-red-500" />
-                  <p class="text-gray-700 text-base">{{ meal?.strCategory }}</p>
+                  <title-content
+                    :title="meal?.strMeal"
+                    color="text-red-500"
+                  />
+                  <p class="text-gray-700 text-base">
+                    {{ meal?.strCategory }}
+                  </p>
                 </div>
                 <div class="mt-4">
                   <a

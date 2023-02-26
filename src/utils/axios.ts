@@ -1,4 +1,5 @@
 import Axios from "axios";
+
 const baseURL = "https://www.themealdb.com/api/json/v1/1/";
 const axios = Axios.create({
   baseURL,

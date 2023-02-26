@@ -1,5 +1,8 @@
 <template>
-  <h1 class="text-2xl font-bold mb-4" :class="colorClass">
+  <h1
+    class="text-2xl font-bold mb-4"
+    :class="colorClass"
+  >
     {{ title }}
   </h1>
 </template>

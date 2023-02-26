@@ -1,13 +1,14 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import axios from "@/utils/axios";
-import { Meal, MealApiResponse } from "@/types/meal";
+import axios from "../../utils/axios";
+import { Meal, MealApiResponse } from "../../common/types/meal";
+import { AxiosError } from "axios";
 
 export const useMealStore = defineStore("meal", () => {
   const randomMeal = ref<Meal | undefined>(undefined);
   const meal = ref<Meal | undefined>(undefined);
   const isLoading = ref(false);
-  const error = ref<string | undefined>(undefined);
+  const error = ref<AxiosError | undefined>(undefined);
   const searchResults = ref<Meal[] | undefined>(undefined);
 
   const fetchMealById = async (id: string) => {
@@ -16,7 +17,7 @@ export const useMealStore = defineStore("meal", () => {
       const response = await axios.get<MealApiResponse>(`/lookup.php?i=${id}`);
       meal.value = response.data.meals[0];
     } catch (error) {
-      error = error.value.message;
+      console.log(error)
     } finally {
       isLoading.value = false;
     }
@@ -26,10 +27,9 @@ export const useMealStore = defineStore("meal", () => {
     isLoading.value = true;
     try {
       const response = await axios.get<MealApiResponse>("/random.php");
-      console.log(response.data);
       randomMeal.value = response.data.meals[0];
     } catch (error) {
-      error = error.value.message;
+      console.log(error)
     } finally {
       isLoading.value = false;
     }
@@ -43,7 +43,7 @@ export const useMealStore = defineStore("meal", () => {
       );
       searchResults.value = response.data.meals;
     } catch (error) {
-      error = error.value.message;
+      console.log(error)
     } finally {
       isLoading.value = false;
     }
