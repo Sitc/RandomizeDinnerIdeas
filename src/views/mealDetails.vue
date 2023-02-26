@@ -5,6 +5,7 @@ import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 import TitleContent from "../common/Title/TitleContent.vue";
 import IngredientsList from "../components/IngredientList/index.vue";
+import VideoPlayer from "../components/VideoPlayer/index.vue";
 
 const route = useRouter();
 const mealStore = useMealStore();
@@ -19,13 +20,6 @@ onMounted(() => {
 if (!meal) {
   route.push({ name: "home" });
 }
-
-const createEmbedYoutubeUrl = (url: string) => {
-  const videoId = url.split("v=")[1];
-  const ampersandPosition = videoId.indexOf("&");
-
-  return `https://www.youtube.com/embed/${videoId}`;
-};
 
 </script>
 
@@ -47,20 +41,13 @@ const createEmbedYoutubeUrl = (url: string) => {
           </div>
         </div>
         <div v-if="meal?.strYoutube" class="py-8">
-          <h1 class="text-4xl font-bold text-center text-gray-800">
-            Video
-          </h1>
-          <div class="flex justify-center">
-            <iframe
-              class="mt-4"
-              width="560"
-              height="315"
-              :src="createEmbedYoutubeUrl(meal?.strYoutube)"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
+          <div class="flex flex-col items-center justify-center">
+            <h1 class="text-4xl font-bold text-center text-gray-800">
+              Video
+            </h1>
+              <video-player
+                :url="meal?.strYoutube"
+              />
           </div>
         </div>
         <div class="py-8">
