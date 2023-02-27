@@ -23,7 +23,7 @@ This will start a development server and open the application in your default br
 To run unit tests, use the following command:
 
 ```console
-npm run test:unit
+npm run test
 ```
 
 This will run all unit tests and display the results in the console.
@@ -78,3 +78,8 @@ The application includes unit tests for the MealDetails component, which can be 
 ## Conclusion
 
 This meal finder application was built by a React developer who had a lot of fun learning about Vue3 Composition and Pinia. The application demonstrates the use of Vue.js 3 and Tailwind CSS to build a responsive, modular, and testable web application. The use of libraries such as axios, vue-router, and pinia helps to simplify development and make the code more maintainable and scalable.
+
+<!-- // Add draw_a_plan.png -->
+### Plan
+
+![quick plan of attack in excalidraw](/Users/attila/Documents/GitHub/Assignment/vue/vite-app/src/assets/draw_a_plan.png)
