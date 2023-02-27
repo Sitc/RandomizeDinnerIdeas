@@ -98,7 +98,6 @@ onMounted(() => {
             v-for="meal in searchResults"
             :key="meal.idMeal"
             class="my-2 px-2 w-full sm:my-4 sm:px-4 sm:w-1/2 md:w-1/3 lg:w-1/4"
-            @click="viewDetails(meal?.idMeal)"
           >
             <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full">
               <div class="md:h-48 overflow-hidden">
