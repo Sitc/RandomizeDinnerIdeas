@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { watch } from "vue";
 import { useMealStore } from "../../stores/meal";
+import { useSearchStore } from "../../stores/search";
+import { storeToRefs } from "pinia";
 
 const mealStore = useMealStore();
+const { searchQuery } = storeToRefs(useSearchStore());
 const { fetchSearchResults, clearSearchResults } = mealStore;
-const searchQuery = ref("");
 
 watch(searchQuery, (newVal) => {
   if (newVal.length > 2) {
