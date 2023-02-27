@@ -82,4 +82,4 @@ This meal finder application was built by a React developer who had a lot of fun
 <!-- // Add draw_a_plan.png -->
 ### Plan
 
-![quick plan of attack in excalidraw](/Users/attila/Documents/GitHub/Assignment/vue/vite-app/src/assets/draw_a_plan.png)
+![quick plan of attack in excalidraw](./src/assets/draw_a_plan.png)
