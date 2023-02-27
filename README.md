@@ -83,3 +83,7 @@ This meal finder application was built by a React developer who had a lot of fun
 ### Plan
 
 ![quick plan of attack in excalidraw](./src/assets/draw_a_plan.png)
+
+### Extra Feature
+
+The Diet feature in this application allows users to search for meals that fit specific dietary needs. There are three types of dietary needs shown: vegan, meat-containing, and dairy-free
