@@ -4,7 +4,7 @@
 <template>
   <div
     id="app"
-    class="h-screen flex flex-col"
+    class="h-full flex flex-col bg-gray-700"
   >
     <nav class="bg-indigo-900 text-white h-15 flex items-center justify-center">
       <ul class="flex items-center">

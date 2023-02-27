@@ -54,9 +54,6 @@ if (!meal) {
           class="py-8"
         >
           <div class="flex flex-col items-center justify-center">
-            <!-- <h2 class="text-4xl font-bold text-center text-gray-800">
-              Video
-            </h2> -->
             <sub-title
               :title="'Watch the video to see how to make this meal'"
               :color="'text-gray-800'"
@@ -70,8 +67,11 @@ if (!meal) {
           <sub-title
             :title="'Instructions'"
             :color="'text-gray-800'"
-          />
-          <p class="mt-4 text-xl font-medium text-gray-700">
+            class="mt-4 text-xl font-medium text-gray-700"
+          >
+            {{ meal?.strInstructions }}
+          </sub-title>
+          <p>
             {{ meal?.strInstructions }}
           </p>
         </div>

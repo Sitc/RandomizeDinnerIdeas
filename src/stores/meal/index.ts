@@ -62,6 +62,6 @@ export const useMealStore = defineStore("meal", () => {
     fetchRandomMeal,
     fetchSearchResults,
     searchResults,
-    clearSearchResults,
+    clearSearchResults
   };
 });

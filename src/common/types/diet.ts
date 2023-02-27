@@ -1,0 +1,1 @@
+export type DietType = "vegan" | "meat" | "dairy-free";
