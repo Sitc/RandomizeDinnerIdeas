@@ -3,10 +3,8 @@ import { useMealStore } from "../stores/meal";
 import { storeToRefs } from "pinia";
 import TitleContent from "../common/Title/TitleContent.vue";
 import { onMounted } from "vue";
-import { useRouter } from "vue-router";
 import SearchInput from "@/components/Search/SearchInput.vue";
 
-const router = useRouter();
 const mealStore = useMealStore();
 const { fetchRandomMeal } = mealStore;
 const { randomMeal, isLoading, error, searchResults } = storeToRefs(mealStore);
@@ -16,10 +14,6 @@ onMounted(() => {
     fetchRandomMeal();
   }
 });
-
-function viewDetails (id: string) {
-  router.push({ name: "details", params: { id: id } });
-}
 
 </script>
 
@@ -59,36 +53,39 @@ function viewDetails (id: string) {
             </p>
 
             <div class="p-4">
-              <div
-                class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl max-h-96 cursor-pointer"
-                @click="viewDetails(randomMeal?.idMeal as string)"
+              <router-link
+                :to="{ name: 'details', params: { id: randomMeal?.idMeal } }"
               >
-                <div class="md:flex">
-                  <div class="xs:h-10 sm:h-30 md:w-60 md:h-50 md:flex-shrink-0">
-                    <img
-                      class="w-full h-full object-cover md:rounded-l-xl"
-                      :src="randomMeal?.strMealThumb"
-                      alt="A beautiful landscape"
-                    >
-                  </div>
-                  <div class="sm:px-4 sm:py-1 md:px-6 md:py-2 sm:p-2 md:p-6 md:flex-grow">
-                    <title-content
-                      v-if="randomMeal?.strMeal"
-                      :title="randomMeal?.strMeal as string"
-                      :color="'text-red-500'"
-                    />
+                <div
+                  class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl max-h-96 cursor-pointer"
+                >
+                  <div class="md:flex">
+                    <div class="xs:h-10 sm:h-30 md:w-60 md:h-50 md:flex-shrink-0">
+                      <img
+                        class="w-full h-full object-cover md:rounded-l-xl"
+                        :src="randomMeal?.strMealThumb"
+                        alt="A beautiful landscape"
+                      >
+                    </div>
+                    <div class="sm:px-4 sm:py-1 md:px-6 md:py-2 sm:p-2 md:p-6 md:flex-grow">
+                      <title-content
+                        v-if="randomMeal?.strMeal"
+                        :title="randomMeal?.strMeal as string"
+                        :color="'text-red-500'"
+                      />
 
-                    <p class="text-gray-700 text-base">
-                      {{ randomMeal?.strCategory }}
-                    </p>
-                    <a
-                      class="self-end mt-4 block text-indigo-700 font-bold hover:text-indigo-900 cursor-pointer text-sm text-right md:text-left"
-                    >
-                      Read More
-                    </a>
+                      <p class="text-gray-700 text-base">
+                        {{ randomMeal?.strCategory }}
+                      </p>
+                      <a
+                        class="self-end mt-4 block text-indigo-700 font-bold hover:text-indigo-900 cursor-pointer text-sm text-right md:text-left"
+                      >
+                        Read More
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </router-link>
             </div>
           </div>
         </div>
@@ -123,12 +120,12 @@ function viewDetails (id: string) {
                   </p>
                 </div>
                 <div class="mt-4">
-                  <a
+                  <router-link
+                    :to="{ name: 'details', params: { id: meal?.idMeal } }"
                     class="block text-indigo-700 font-bold hover:text-indigo-900 cursor-pointer text-sm text-right md:text-left"
-                    @click="viewDetails(meal?.idMeal)"
                   >
                     Read More
-                  </a>
+                  </router-link>
                 </div>
               </div>
             </div>
