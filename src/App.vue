@@ -1,21 +1,14 @@
 <script setup lang="ts">
+import Navbar from './components/Navbar/NavBar.vue';
 </script>
 
 <template>
   <div
     id="app"
-    class="h-full flex flex-col bg-gray-700"
+    class="h-full flex flex-col"
   >
-    <nav class="bg-indigo-900 text-white h-15 flex items-center justify-center">
-      <ul class="flex items-center">
-        <li class="m-4">
-          <router-link to="/">
-            Home
-          </router-link>
-        </li>
-      </ul>
-    </nav>
-    <div class="h-80">
+    <navbar />
+    <div class="h-80 mt-12">
       <router-view />
     </div>
   </div>
