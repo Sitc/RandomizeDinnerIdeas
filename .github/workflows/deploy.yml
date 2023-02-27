@@ -10,7 +10,7 @@ jobs:
       - name: Setup Node.js v16.x
         uses: actions/setup-node@v3
         with:
-          path: '**/node_modules'
+          node-version: "16.x"
       - name: Install
         run: npm install
       - name: Build
