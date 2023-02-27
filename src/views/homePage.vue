@@ -81,7 +81,7 @@ const viewDetails = (id: string) => {
                     </p>
                     <a
                       class="self-end mt-4 block text-indigo-700 font-bold hover:text-indigo-900 cursor-pointer text-sm text-right md:text-left"
-                      @click="viewDetails(randomMeal?.idMeal)"
+                      @click="viewDetails(randomMeal?.idMeal as string)"
                     >
                       Read More
                     </a>

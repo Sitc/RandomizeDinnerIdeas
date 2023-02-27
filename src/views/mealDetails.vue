@@ -6,6 +6,7 @@ import { useRouter } from "vue-router";
 import TitleContent from "../common/Title/TitleContent.vue";
 import IngredientsList from "../components/IngredientList/IngredientList.vue";
 import VideoPlayer from "../components/VideoPlayer/VideoPlayer.vue";
+import { Meal } from "../common/types/meal";
 
 const route = useRouter();
 const mealStore = useMealStore();
@@ -43,7 +44,7 @@ if (!meal) {
               :title="meal?.strMeal"
               color="text-red-500"
             />
-            <ingredients-list :meal="meal" />
+            <ingredients-list :meal="meal as Meal" />
           </div>
         </div>
         <div
