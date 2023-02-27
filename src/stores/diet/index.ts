@@ -2,10 +2,13 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import { MealApiResponse } from "../../common/types/meal";
 import axios from "../../utils/axios";
+import { DietIndicatorType } from "../../common/types/diet";
 
 export const useDietStore = defineStore("diet", () => {
 
-const diet = ref(null);
+
+
+const diet = ref<DietIndicatorType>();
 
 const dietTypes = {
   vegan: {
