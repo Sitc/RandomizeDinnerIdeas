@@ -4,6 +4,7 @@
     "useDefineForClassFields": true,
     "module": "commonjs",
     "moduleResolution": "Node",
+    "allowJs": true,
     "strict": true,
     "jsx": "preserve",
     "resolveJsonModule": true,
@@ -11,7 +12,7 @@
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
-    "noEmit": true
+    "noEmit": true,
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
