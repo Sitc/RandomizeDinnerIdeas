@@ -8,7 +8,7 @@ import Navbar from './components/Navbar/NavBar.vue';
     class="h-full flex flex-col"
   >
     <navbar />
-    <div class="h-80 mt-12">
+    <div class="h-80 mt-16">
       <router-view />
     </div>
   </div>
