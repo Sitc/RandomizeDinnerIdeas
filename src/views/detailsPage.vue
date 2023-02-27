@@ -5,6 +5,7 @@ import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 import TitleContent from "../common/Title/TitleContent.vue";
 import IngredientsList from "../components/IngredientList/IngredientList.vue";
+import SubTitle from "../common/Title/SubTitle.vue";
 import VideoPlayer from "../components/VideoPlayer/VideoPlayer.vue";
 import { Meal } from "../common/types/meal";
 
@@ -41,8 +42,9 @@ if (!meal) {
           </div>
           <div class="flex flex-col justify-center">
             <title-content
-              :title="meal?.strMeal"
-              color="text-red-500"
+              v-if="meal?.strMeal"
+              :title="meal?.strMeal as string"
+              :color="'text-red-500'"
             />
             <ingredients-list :meal="meal as Meal" />
           </div>
@@ -52,18 +54,23 @@ if (!meal) {
           class="py-8"
         >
           <div class="flex flex-col items-center justify-center">
-            <h1 class="text-4xl font-bold text-center text-gray-800">
+            <!-- <h2 class="text-4xl font-bold text-center text-gray-800">
               Video
-            </h1>
+            </h2> -->
+            <sub-title
+              :title="'Watch the video to see how to make this meal'"
+              :color="'text-gray-800'"
+            />
             <video-player
               :url="meal?.strYoutube"
             />
           </div>
         </div>
         <div class="py-8">
-          <h1 class="text-4xl font-bold text-center text-gray-800">
-            Instructions
-          </h1>
+          <sub-title
+            :title="'Instructions'"
+            :color="'text-gray-800'"
+          />
           <p class="mt-4 text-xl font-medium text-gray-700">
             {{ meal?.strInstructions }}
           </p>

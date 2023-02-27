@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import HomePage from "@/views/homePage.vue";
-import MealDetails from "@/views/mealDetails.vue";
+import detailsPage from "@/views/detailsPage.vue";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -8,9 +8,9 @@ const routes: Array<RouteRecordRaw> = [
     component: HomePage,
   },
   {
-    path: "/:id/details",
+    path: "/details/:id",
     name: "details",
-    component: () => MealDetails,
+    component: () => detailsPage,
   },
 ];
 const router = createRouter({

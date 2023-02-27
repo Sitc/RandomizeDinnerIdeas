@@ -6,7 +6,7 @@
     id="app"
     class="h-screen flex flex-col"
   >
-    <nav class="bg-indigo-900 text-white h-20 flex items-center justify-center">
+    <nav class="bg-indigo-900 text-white h-15 flex items-center justify-center">
       <ul class="flex items-center">
         <li class="m-4">
           <router-link to="/">

@@ -17,9 +17,10 @@ onMounted(() => {
   }
 });
 
-const viewDetails = (id: string) => {
+function viewDetails (id: string) {
   router.push({ name: "details", params: { id: id } });
-};
+}
+
 </script>
 
 <template>
@@ -29,7 +30,6 @@ const viewDetails = (id: string) => {
 
   <div id="home">
     <div v-if="!searchResults">
-      <!-- // create a new component called RandomMeal -->
       <main class="flex-grow">
         <div
           class="container mx-auto px-4 flex items-center justify-center h-full"
@@ -60,20 +60,22 @@ const viewDetails = (id: string) => {
 
             <div class="p-4">
               <div
-                class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl max-h-96"
+                class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl max-h-96 cursor-pointer"
+                @click="viewDetails(randomMeal?.idMeal as string)"
               >
                 <div class="md:flex">
-                  <div class="md:w-60 md:h-auto md:flex-shrink-0">
+                  <div class="xs:h-10 sm:h-30 md:w-60 md:h-50 md:flex-shrink-0">
                     <img
                       class="w-full h-full object-cover md:rounded-l-xl"
                       :src="randomMeal?.strMealThumb"
                       alt="A beautiful landscape"
                     >
                   </div>
-                  <div class="p-6 md:flex-grow">
+                  <div class="sm:px-4 sm:py-1 md:px-6 md:py-2 sm:p-2 md:p-6 md:flex-grow">
                     <title-content
-                      :title="randomMeal?.strMeal"
-                      color="text-red-500"
+                      v-if="randomMeal?.strMeal"
+                      :title="randomMeal?.strMeal as string"
+                      :color="'text-red-500'"
                     />
 
                     <p class="text-gray-700 text-base">
@@ -81,7 +83,6 @@ const viewDetails = (id: string) => {
                     </p>
                     <a
                       class="self-end mt-4 block text-indigo-700 font-bold hover:text-indigo-900 cursor-pointer text-sm text-right md:text-left"
-                      @click="viewDetails(randomMeal?.idMeal as string)"
                     >
                       Read More
                     </a>
@@ -94,7 +95,6 @@ const viewDetails = (id: string) => {
       </main>
     </div>
     <div v-if="searchResults">
-      <!-- // create a new component called SearchResults -->
       <main class="container mx-auto px-4">
         <div class="flex flex-wrap -mx-2">
           <div
@@ -104,17 +104,18 @@ const viewDetails = (id: string) => {
             @click="viewDetails(meal?.idMeal)"
           >
             <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full">
-              <div class="h-48 overflow-hidden">
+              <div class="md:h-48 overflow-hidden">
                 <img
                   class="w-full h-full object-cover"
                   :src="meal?.strMealThumb"
                   alt="meal"
                 >
               </div>
-              <div class="px-6 py-2 flex flex-col justify-between">
+              <div class="sm:px-4 sm:py-1 md:px-6 md:py-2 flex flex-col justify-between">
                 <div>
                   <title-content
-                    :title="meal?.strMeal"
+                    v-if="meal?.strMeal"
+                    :title="meal?.strMeal as string"
                     color="text-red-500"
                   />
                   <p class="text-gray-700 text-base">

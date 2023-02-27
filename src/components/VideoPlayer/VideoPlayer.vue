@@ -14,14 +14,14 @@ const createEmbedYoutubeUrl = (url: string) => {
 </script>
 
 <template>
-  <iframe
-    class="mt-4"
-    width="560"
-    height="315"
-    :src="createEmbedYoutubeUrl(url)"
-    title="YouTube video player"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen
-  />
+  <div class="mt-4">
+    <iframe
+      :class="['w-full', 'aspect-w-4', 'aspect-h-3', 'md:w-96']"
+      :src="createEmbedYoutubeUrl(url)"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    />
+  </div>
 </template>

@@ -20,7 +20,7 @@ const ingredientsWithMeasure = computed(() => {
     <table class="table-auto w-full">
       <div
         v-for="item in ingredientsWithMeasure"
-        :key="item.measure"
+        :key="item.measure + Math.random()"
       >
         <tr>
           <span class="font-medium">{{ item.ingredient }}:</span>
