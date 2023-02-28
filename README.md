@@ -15,7 +15,7 @@ npm install
 ```
 
 ```console
-npm run serve
+npm run dev
 ```
 
 This will start a development server and open the application in your default browser.
